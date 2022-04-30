@@ -1,0 +1,255 @@
+" Init settings {
+    " 不兼容vi
+    set nocompatible
+    " 使用默认shell
+    set shell=/bin/sh
+
+    if has("multi_byte")
+        " 设置本地通用编码 utf-8
+        set encoding=utf-8
+        " 设置通用文件编码格式 utf-8
+        setglobal fileencoding=utf-8
+        " 设置文件可用的编码格式
+        set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+    endif
+" }
+"
+" Key mappings {
+    let mapleader = ','
+" }
+"
+" UI settings {
+    " 多标签页的窗口编辑
+    " 一个标签页容纳一个或多个窗口，标签页间切换容易，这种方式可以使使用者拥有多个窗口集合
+    " 每个集合做不同的事情,标签页个数不能超过 tabpagemax
+    set tabpagemax=15
+    " 显示当前所处模式
+    set showmode
+    " 突出显示当前行
+    set cursorline
+    " 突出显示当前垂直行
+    "set cursorcolumn
+    " 标识栏和匹配背景色
+    highlight clear SignColumn
+    " 当前行号匹配当前模式的背景颜色
+    highlight clear LineNr
+
+    " Vim 命令行及状态栏的设置
+    " 命令行的显示设置
+    if has('cmdline_info')
+        " 打开状态栏标尺
+        set ruler
+        " 设置状态栏标尺格式
+        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+        " 显示输入时的命令，可以直观的查看输入的命令
+        set showcmd
+    endif
+
+    " 状态栏的显示设置
+    if has('statusline')
+        " 总是显示状态栏
+        set laststatus=2
+
+        " 设置状态栏显示常用信息
+        " %{...} 评估表达式的值，并用值代替
+        " 显示当前文件的个数编号
+        set statusline=%<[%n]
+        " 显示完整文件路径名信息
+        set statusline+=\ %F
+        " 仅显示文件名信息（不包括路径）
+        "set statusline+=\ %f
+        " %m 当前缓冲被修改标记
+        " %r 当前缓冲只读标记
+        " %w 预览缓冲标记
+        " %h 帮助缓冲标记
+        set statusline+=%m%r%w%h
+        " 显示当前文件所在目录
+        "set statusline+=\ [%{getcwd()}]
+        " 显示文件类型
+        set statusline+=\ [TYPE=%Y
+        " 显示文件格式(unix/mac/dos)
+        set statusline+=\ FORMAT=%{&ff}
+        " 显示文件编码格式
+        set statusline+=\ ENCODING=%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]
+        " 显示当前光标所在字符的ASCII编码
+        set statusline+=\ [ASCII=\%03.3b
+        " 显示当前光标所在字符编码对应的16进制值
+        set statusline+=\ HEX=\%02.2B]
+        " 显示当前光标的坐标位置
+        set statusline+=\ [POS=%04l,%04v
+        " 显示当前文件的总行数
+        set statusline+=\ LEN=%L]
+        " 显示当前位置所处当前文件的百分比
+        set statusline+=[%p%%]
+    endif
+
+
+    " 模仿出一个 backspace
+    set backspace=indent,eol,start
+    " 防止两行之间有多余的空格
+    set linespace=0
+    " 显示行号
+    set nu
+    " 显示匹配的括号
+    set showmatch
+    " 增量动态搜索
+    set incsearch
+    " 突出显示搜索内容
+    set hlsearch
+    " 允许窗口的最小高度为0
+    set winminheight=0
+    " 搜索忽略大小写
+    set ignorecase
+    " 检索时，智能判断大小写(用于检索键入的内容有大小写区分时)
+    set smartcase
+    " 在状态栏上命令行智能列出待选命令并补全
+    set wildmenu
+    " wildmenu 的匹配模式及顺训
+    set wildmode=list:longest,full
+    " 可以从行首/尾调到另外一行
+    set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+    " 控制光标到达窗口顶/底端时，窗口发生滚动的行数
+    set scrolljump=5
+    " 光标移动顶/底端，保持设置的距离就开始滚动
+    set scrolloff=3
+    " 自动折叠代码
+    set foldenable
+    " 设置 list 可以显示 TAB 键
+    set list
+    " 突出显示有问题的空白部分
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" }
+"
+" Normal configs {
+    " filetype on -> filetype plugin on -> filetype indent on
+    " 开启文件类型检测-> 自动加载相应插件 -> 启用相关缩进插件
+    filetype plugin indent on
+    " 语法高亮
+    syntax on
+    " 自动使用鼠标，如果使用鼠标复制 粘贴，需要禁用该设置
+    " 使用Vim时建议尽量少用鼠标
+    set mouse=a
+    " 打字时隐藏鼠标光标
+    set mousehide
+    " 脚本编码格式 utf-8
+    scriptencoding utf-8
+    " Linux 系统一般具有粘贴版：
+    " unnamed 选择粘贴版，vim 映射到 * 寄存器
+    " unnamedplus 系统粘贴版，和其其他平台的Ctrl+C,Ctrl+V功能相同，vim映射到 + 寄存器
+    " 以下设置可以跨平台使用,:reg 查看寄存器详情
+    if has('clipboard') && has("unnamedplus")
+        set clipboard=unnamed,unnamedplus
+    endif
+
+    " universal-ctags 替换 exuberant-ctags 并配置
+    set tags=tags
+    " 自动切换当前目录为当前编辑文件所在的目录
+    set autochdir
+    " 切换到新的文件(新Buffer)后，目录自动切换到当前编辑文件（Buffer）的路径
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+
+    " 启动vim时不显示乌干达的信息
+    set shortmess=alI
+    " 虚拟编辑，允许光标定位达到每行最后一个字符之后
+    set virtualedit=onemore
+    " 保存更多的编辑历史
+    set history=1000
+    " 拼写检查
+    "set spell
+    " 允许在不保存的情况下切换编辑buffer
+    set hidden
+    " _,@,#,$,-连接的字符作为一个整体，选择、换行不分割
+    set iskeyword+=_,@,#,$,-
+
+    " 编辑 git commit 信息时，编辑光标定位最开始
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+    " 再次打开文件光标恢复到最后编辑的位置
+    function! ResCur()
+        if line("'\'") <= line("$")
+            silent! normal! g`"
+            return 1
+        endif
+    endfunction
+
+    augroup resCur
+        autocmd!
+        autocmd BufWinEnter * call ResCur()
+    augroup END
+    "
+
+    " 设置备份
+    set backup
+
+    " 持久的保存当前文件的编辑历史，用于可持久性的撤销操作
+    " 防止再次打开编辑过的文件无法进行之前操作的撤销动作
+    if has('persistent_undo')
+        " 激活撤销
+        set undofile
+        " 最大撤销的行数
+        set undolevels=1000
+        " 重新加载buffer时能够保存的最大撤销行数
+        set undoreload=10000
+    endif
+
+    " avoid -- No newline at end of file
+    set binary
+    set noeol
+"
+" }
+"
+" Format Display {
+    " 取消自动换行
+    set nowrap
+    "set wrap
+    "
+    " 自动与上一级保持相同的缩进
+    set autoindent
+    " 程序中自动缩进所使用的空白长度的设置
+    set shiftwidth=4
+    " 将制表符(Tab)换为空格，避免使用制表符(Tab)
+    "set expandtab
+    " 定义每个Tab等同的空格长度
+    set tabstop=4
+    " 空格数满足设定值整数倍时，这转换为相应倍数个的Tab，否则全部为空格
+    set softtabstop=4
+    " 通过设置 joinspaces 可以控制合并两行时的分隔符
+    " nojoinspaces 用 J 命令合并两行时会用一个空格来分隔;
+    " joinspaces 用 J 命令合并两行时会用两个空格来分隔;
+    " 不希望用空格来分隔合并的行，使用命令 gJ
+    set nojoinspaces
+    " 将新垂直分割的窗空放置在当前窗口右侧
+    set splitright
+    " 将新水平分割的窗空放置在当前窗口下侧
+    set splitbelow
+    "set matchpairs+=<:>             " Match, to be used with %
+    " vim中在粘贴剪贴板中的数据时会自动增加缩进
+    " 设置粘贴模式，在粘贴模式下复制粘贴可以预防出现粘贴时候的缩进
+    set pastetoggle=<F12>
+    " 自动格式化注释的部分
+    set comments=sl:/*,mb:*,elx:*/
+    set fileformat=unix       " 文件为unix格式
+
+    " 移除末尾的 空白 和 ^M 字符
+    " 发生在整个缓冲区被写入之前除去末尾的空白
+    " 根据扩展名识别文件类型
+    "autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer>  call StripTrailingWhitespace()
+
+    "autocmd FileType go autocmd BufWritePre <buffer> Fmt
+    "autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+    "autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+    " preceding line best in a plugin but here for now.
+
+    "autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
+    " Workaround vim-commentary for Haskell
+    "autocmd FileType haskell setlocal commentstring=--\ %s
+    " Workaround broken colour highlighting in Haskell
+    "autocmd FileType haskell,rust setlocal nospell
+
+    " 标记掉不必要的空格
+    "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"
+" }
+"
+" Personal functions {
