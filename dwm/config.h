@@ -78,12 +78,11 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
-static const char *browsercmd[]  = { "microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:1089", NULL };
 static const char *chromecmd[]  = { "microsoft-edge-stable",  NULL };
 static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-sp.sh",  NULL };
 static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
@@ -94,9 +93,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*打开火焰截图*/
-	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开chrome*/
+	{ MODKEY,                       XK_i,      spawn,          {.v = chromecmd } },/*打开chrome*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
-	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = browsercmd } },/*以代理模式打开chrome*/
 	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },//打开dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },//打开终端
