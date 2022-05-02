@@ -42,13 +42,13 @@ static const unsigned int alphas[][3]      = {
 static const char *tags[] = { "\uf015¹", "\ue5fe²", "\uf030³", "\uf268⁴", "\uf269⁵", "\ue62a⁶", "\ue217⁷", "\uf2dc⁸", "\uf30d⁹" };
 
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	 /* xprop(1):
+	  *	WM_CLASS(STRING) = instance, class
+	  *	WM_NAME(STRING) = title
+	 
+	* class      instance    title       tags mask     isfloating   monitor */
+    { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -81,7 +81,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };
+static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
 static const char *chromecmd[]  = { "microsoft-edge-stable",  NULL };
 static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-sp.sh",  NULL };
@@ -93,7 +93,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*打开火焰截图*/
-	{ MODKEY,                       XK_i,      spawn,          {.v = chromecmd } },/*打开chrome*/
+  { MODKEY,                       XK_p,      spawn,          {.v = screenshotcmd } },/*打开火焰截图*/
+	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开chrome*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
 	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },//打开dmenu
