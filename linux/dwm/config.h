@@ -89,7 +89,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
 static const char *file[] = {"nautilus", NULL};
-static const char *lock[] = {"i3lock-fancy, NULL"};
+static const char *lock[] = {"i3lock-fancy", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
