@@ -89,9 +89,11 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
 static const char *file[] = {"nautilus", NULL};
+static const char *lock[] = {"i3lock-fancy, NULL"};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+  { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = lock}},  /*锁屏*/
   { MODKEY,                       XK_e,      spawn,          {.v = file}}, /*打开gnome文件*/
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
