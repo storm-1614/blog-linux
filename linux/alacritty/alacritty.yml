@@ -42,17 +42,13 @@ colors:
 # 设置字体
 font:
   normal:
-    family: "Hack"
-    style: Regular
+    family: "Hack NF"
   bold:
-    family: "Hack"
-    style: Bold
+    family: "Hack NF"
   italic:
-    family: "Hack"
-    style: Italic
+    family: "Hack NF"
   bold_italic:
-    family: "Hack"
-    style: Bold Italic
+    family: "Hack NF"
 
   # 字大小
   size: 11.0 
