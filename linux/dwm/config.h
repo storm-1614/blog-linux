@@ -82,7 +82,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };
+/*static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };*/
+static const char *roficmd[]  = { "/home/storm/rofi.sh", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
 static const char *chromecmd[]  = { "microsoft-edge-stable",  NULL };
 static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-sp.sh",  NULL };
@@ -181,4 +182,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
