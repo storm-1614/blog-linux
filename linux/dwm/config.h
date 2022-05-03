@@ -39,7 +39,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = {"\uf120¹", "\ue5fe²", "\uf030³","\uf268⁴", "\uf269⁵", "\ue62a⁶","\ue217⁷", "\uf2dc⁸", "\uf684⁹"};
+static const char *tags[] = {"¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹"};
 /*static const char *tags[] = { "\uf120¹", "\uf7ae²", "\uf121³", "\ue04b⁴", "\uf62e⁵", "\uf251⁶", "\ue727⁷", "\uf537⁸", "\uf684⁹" };*/
 /*static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\ue04b", "\uf62e", "\uf251", "\ue727", "\uf537", "\uf684" };*/
 static const Rule rules[] = {
