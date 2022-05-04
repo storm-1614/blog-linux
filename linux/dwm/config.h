@@ -89,7 +89,7 @@ static const char *chromecmd[]  = { "microsoft-edge-stable",  NULL };
 static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-sp.sh",  NULL };
 static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"nautilus", NULL};
+static const char *file[] = {"thunar", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 
 static Key keys[] = {
@@ -103,7 +103,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开edge*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
 	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },//打开dmenu
+	//{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },//打开dmenu
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },//打开终端
 	{ MODKEY,                       XK_b,      togglebar,      {0} },//隐藏状态栏
 	{ MODKEY|ShiftMask,             XK_b,      rotatestack,    {.i = +1 } },//循环交换两个窗口的位置
