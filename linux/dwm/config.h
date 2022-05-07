@@ -91,6 +91,8 @@ static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
 static const char *file[] = {"thunar", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
+static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,6 +103,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*截图*/
   { MODKEY,                       XK_p,      spawn,          {.v = screenshotcmd } },/*截图*/
 	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开edge*/
+  {MODKEY | ShiftMask,            XK_c,      spawn,          {.v = browsercmd}}, /*以代理模式打开edge*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
 	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	//{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },//打开dmenu
