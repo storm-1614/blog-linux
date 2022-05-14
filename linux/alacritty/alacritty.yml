@@ -1,7 +1,7 @@
 window:
   dimensions:
-    columns: 130
-    lines: 34
+    columns: 65
+    lines: 25
   # 内填充
   padding:
     x: 0
@@ -9,34 +9,53 @@ window:
 
 background.opacity: 0.7
 colors:
-
   primary:
-    background: "#1e2127"
-    # background: "#2E3440"
-    foreground: "#D8DEE9"
-
-
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
   normal:
-    black: "#3B4252"
-    red: "#BF616A"
-    green: "#A3BE8C"
-    yellow: "#EBCB8B"
-    blue: "#81A1C1"
-    magenta: "#B48EAD"
-    cyan: "#88C0D0"
-    white: "#abb2bf"
-
-
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
   bright:
-    black: "#5c6370"
-    red: "#e06c75"
-    green: "#98c379"
-    yellow: "#d19a66"
-    blue: "#61afef"
-    magenta: "#c678dd"
-    cyan: "#56b6c2"
-    white: "#ECEFF4"
-
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
       #background_opacity: 1.0
 
 # 设置字体
