@@ -8,18 +8,23 @@ sudo pacman -S xf86-input-synaptics
 ### 配置
 ```
 sudo cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d
+
 ```
-/etc/X11/xorg.conf.d/40-libinput.conf 
+/etc/X11/xorg.conf.d/70-synaptics.conf 
 ```
 Section "InputClass"
-        Identifier "touchpad"
-        MatchIsTouchpad "on"
-        MatchDevicePath "/dev/input/event*"
-        Driver "libinput"
-        Option "Tapping" "on"
-        Option "ButtonMapping" "1 3 0 4 5 6 7"
-        Option "TappingButtonMap" "lmr"
-        Option "DisableWhileTyping" "on"
-        Option "TappingDrag" "on"
+	Identifier "touchpad"
+	Driver "synaptics"
+	MatchIsTouchpad "on"
+	Option "TapButton1" "1"
+	Option "TapButton2" "3"
+	Option "TapButton3" "0"
+	Option "VertEdgeScroll" "on"
+	Option "VertTwoFingerScroll" "on"
+	Option "HorizEdgeScroll" "on"
+	Option "HorizTwoFingerScroll" "on"
+	Option "VertScrollDelta" "-112"
+	Option "HorizScrollDelta" "-114"
+	Option "MaxTapTime" "125"
 EndSection
 ```
