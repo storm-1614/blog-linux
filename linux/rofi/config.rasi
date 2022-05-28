@@ -2,8 +2,10 @@ configuration {
   display-drun: "软件:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "Hack 20";
   modi: "window,run,drun";
+  font: "Hack NF 20";
+  icon-theme: "Tela";
+  show-icons :true;
 }
 
 @theme "/dev/null"
