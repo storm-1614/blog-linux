@@ -18,7 +18,7 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray             = 1;   /* 0 means no systray */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "Hack NF:size=14", "PingfFang SC:size=14"};
+static const char *fonts[]          = { "Hack NF:size=14", "Source Han Sans CN:size=14"};
 static const char dmenufont[]       = "Hack NF:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -67,8 +67,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[平铺模式]",      tile },    /* first entry is default */
-	{ "[浮动模式]",      NULL },    /* no layout function means floating behavior */
+	{ "[]=",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 

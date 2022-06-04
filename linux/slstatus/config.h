@@ -64,7 +64,7 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const char get_cpu_temp[] = "sensors coretemp-isa-0000 | awk -F: '{ print $2 }' | sed -n '3p' | sed -r 's/[^0-9]*([0-9](.*)°C  ).*/\\1/'";
-static const char get_time[] = "date '+%Y年%m月%d日(%A) \uf017 %T|'";
+static const char get_time[] = "date '+%Y年%m月%d日%A \uf017 %T|'";
 
 static const struct arg args[] = {
 	/* function format          argument */
