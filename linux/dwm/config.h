@@ -1,9 +1,10 @@
 /* See LICENSE file for copyright and license details. */
+//声音需要安装pulseaudio-ctl
 
 /* appearance */
-static const char *mutevol[] = { "amixer", "-qM", "set", "Master", "toggle", NULL };
-static const char *downvol[] = { "amixer", "-qM", "set", "Master", "5%-", "umute", NULL };
-static const char *upvol[]   = { "amixer", "-qM", "set", "Master", "5%+", "umute", NULL };
+static const char *mutevol[] = { "pulseaudio-ctl", "mute", NULL };
+static const char *downvol[] = { "pulseaudio-ctl", "down", "5", NULL };
+static const char *upvol[]   = { "pulseaudio-ctl", "up", "5", NULL };
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 15;       /* horiz inner gap between windows */
@@ -139,9 +140,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },//窗口改为平铺模式
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} },//窗口改为浮动模式
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },//当前窗口占满屏幕
-	{ MODKEY,                       XK_F11,    spawn,          {.v = downvol } },/*减小音量*/
-	{ MODKEY,                       XK_F9,     spawn,          {.v = mutevol } },/*静音*/
-	{ MODKEY,                       XK_F12,    spawn,          {.v = upvol   } },/*增加音量*/
+	{ MODKEY,                       XK_F5,    spawn,          {.v = downvol } },/*减小音量*/
+	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol } },/*静音*/
+	{ MODKEY,                       XK_F6,    spawn,          {.v = upvol   } },/*增加音量*/
 	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },  //将当前窗口全屏
 	{ MODKEY,                       XK_space,  setlayout,      {0} }, //窗口改为平铺模式
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },//窗口改为浮动模式
