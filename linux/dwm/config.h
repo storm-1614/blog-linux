@@ -98,7 +98,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 //static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"thunar", NULL};
+static const char *file[] = {"dolphin", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
 static const char *power[] = {"power.sh", NULL};
