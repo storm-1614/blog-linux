@@ -20,6 +20,10 @@ fcitx5 -d &
 # /bin/bash ~/.config/scripts/wp-autochange.sh &
 python -u ~/.config/scripts/changewp.py &
 slstatus &
+dunst &
+conky &
+pasystray &
+nm-applet &
 
 exec dwm
 ```
