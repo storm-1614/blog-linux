@@ -2,6 +2,7 @@ return require('packer').startup(function()
     	use 'wbthomason/packer.nvim'
 		--theme
 		use 'shaunsingh/nord.nvim'
+		use 'neoclide/coc.nvim'
 		--tree
     	use {
         'kyazdani42/nvim-tree.lua',
@@ -26,8 +27,8 @@ return require('packer').startup(function()
   		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 			}
 		--lsp
-		use {
-    		"williamboman/nvim-lsp-installer",
-		    "neovim/nvim-lspconfig",
-			}
+		--use {
+		--	"williamboman/nvim-lsp-installer",
+		--    "neovim/nvim-lspconfig",
+		--	}
 end)

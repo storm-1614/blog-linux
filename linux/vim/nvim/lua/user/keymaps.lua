@@ -7,4 +7,5 @@ map('n', '<A-q>', ':tabc<CR>', opt)
 map('n', '<C-q>', ':q<CR>', opt)
 map('n', '<A-w>', ':w<CR>', opt)
 map('n', '<A-e>', 'gt', opt)
+map('n', '<A-x>', '<C-w>w', opt)
 
