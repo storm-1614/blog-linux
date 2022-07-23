@@ -1,7 +1,10 @@
 /* See LICENSE file for copyright and license details. */
 //声音需要安装pulseaudio-ctl
+//亮度需要安装xbacklight-ctl-git
 
 /* appearance */
+static const char *lightup[] = { "xbacklight-ctl", "up", "10",  NULL };
+static const char *lightdown[] = { "xbacklight-ctl", "down", "10",  NULL };
 static const char *mutevol[] = { "pulseaudio-ctl", "mute", NULL };
 static const char *downvol[] = { "pulseaudio-ctl", "down", "5", NULL };
 static const char *upvol[]   = { "pulseaudio-ctl", "up", "5", NULL };
@@ -25,7 +28,7 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577"; //005577
+static const char col_cyan[]        = "#6790EB"; //005577
 /* static char normbgcolor[] = "#2E3440";
 static char normbordercolor[] = "#3B4252";
 static char normfgcolor[] = "#ECEFF4";
@@ -141,6 +144,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[1]} },//窗口改为浮动模式
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },//当前窗口占满屏幕
 	{ MODKEY,                       XK_F5,    spawn,          {.v = downvol } },/*减小音量*/
+	{ MODKEY,                       XK_F1,    spawn,          {.v = lightdown } },/*减小亮度*/
+	{ MODKEY,                       XK_F2,    spawn,          {.v = lightup } },/*增大亮度*/
 	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol } },/*静音*/
 	{ MODKEY,                       XK_F6,    spawn,          {.v = upvol   } },/*增加音量*/
 	{ MODKEY|ShiftMask,             XK_f,      fullscreen,     {0} },  //将当前窗口全屏

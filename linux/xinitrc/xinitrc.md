@@ -12,7 +12,7 @@ sudo cp /etc/X11/xinit/xinitrc ~/.xinitrc
 #qt
 export QT_QPA_PLATFORMTHEME=qt5ct
 #设置半透明
-picom -cGbf &
+picom &
 #输入法
 fcitx5 -d &
 #ibus-daemon --xim -d &

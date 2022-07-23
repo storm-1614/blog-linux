@@ -2,5 +2,5 @@
 
 ### 安装
 ```
-yay -S picom-jonaburg-git
+yay -S picom-ibhagwan-git
 ```
