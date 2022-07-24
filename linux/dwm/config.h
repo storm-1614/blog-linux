@@ -24,11 +24,11 @@ static const int showsystray             = 1;   /* 0 means no systray */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const char *fonts[]          = { "Hack NF:size=14", "Source Han Sans CN:size=14"};
 static const char dmenufont[]       = "Hack NF:size=14";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
+static const char col_gray1[]       = "#2e3440";
+static const char col_gray2[]       = "#2e3440";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#6790EB"; //005577
+static const char col_gray4[]       = "#2e3440";
+static const char col_cyan[]        = "#5e81ac"; //005577
 												
 static const unsigned int baralpha = 0x80;
 static const unsigned int borderalpha = OPAQUE;
