@@ -24,6 +24,8 @@ dunst &
 conky &
 pasystray &
 nm-applet &
+/opt/clash-for-windows-chinese/cfw &
+xset s 1800
 
 exec dwm
 ```
