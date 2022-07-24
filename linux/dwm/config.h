@@ -29,13 +29,7 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#6790EB"; //005577
-/* static char normbgcolor[] = "#2E3440";
-static char normbordercolor[] = "#3B4252";
-static char normfgcolor[] = "#ECEFF4";
-static char selfgcolor[] = "#D8DEE9";
-static char selbordercolor[] = "#5E81AC";
-static char selbgcolor[] = "#5E81AC";
-*/
+												
 static const unsigned int baralpha = 0x80;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -48,7 +42,7 @@ static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
 	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
-};
+}; 
 /* tagging */
 static const char *tags[] = {"¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹"};
 /*static const char *tags[] = { "\uf120¹", "\uf7ae²", "\uf121³", "\ue04b⁴", "\uf62e⁵", "\uf251⁶", "\ue727⁷", "\uf537⁸", "\uf684⁹" };*/
@@ -90,7 +84,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "prime-run","alacritty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 /*static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };*/
