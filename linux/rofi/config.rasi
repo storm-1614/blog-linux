@@ -3,7 +3,7 @@ configuration {
   display-window: "Windows:";
   drun-display-format: "{name}";
   modi: "window,run,drun";
-  font: "Hack NF 20";
+  font: "Source Han Sans CN Medium 24";
   icon-theme: "Tela";
   show-icons :true;
 }
