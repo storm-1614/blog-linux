@@ -25,7 +25,8 @@ conky &
 pasystray &
 nm-applet &
 /opt/clash-for-windows-chinese/cfw &
-xset s 1800
+xset s off
+redshift -O 4500
 
 exec dwm
 ```
