@@ -101,14 +101,16 @@ static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=sock
 static const char *power[] = {"power.sh", NULL};
 static const char *emoji[] = {"rofi", "-show", "emoji", "-modi", "emoji", NULL};
 static const char *window[] = {"rofi", "-show", "window", NULL};
-
-
+static const char *cmus[] = {"cmus-config", NULL};
+static const char *baidu[] = {"baidu-translate-client", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-  { MODKEY|ShiftMask,             XK_z,      spawn,          {.v = lock}},  /*锁屏*/
+	{ MODKEY|ShiftMask,           	XK_z,      spawn,          {.v = lock}},  /*锁屏*/
+	{ MODKEY, 			           	XK_f,      spawn,          {.v = baidu}},  /*翻译*/
+	{ MODKEY, 			           	XK_x,      spawn,          {.v = cmus}},  /*音乐控制*/
 	{ MODKEY,                       XK_e,      spawn,          {.v = file}}, /*打开gnome文件*/
-  { MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
+  	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*截图*/
 	{ MODKEY,                       XK_p,      spawn,          {.v = screenshotcmd } },/*截图*/
@@ -116,9 +118,9 @@ static Key keys[] = {
 	{MODKEY | ShiftMask,            XK_c,      spawn,          {.v = browsercmd}}, /*以代理模式打开edge*/
 	{MODKEY | ShiftMask,            XK_l,      spawn,          {.v = power}}, /*电源*/
 	{MODKEY | ShiftMask,            XK_m,      spawn,          {.v = emoji}}, /*emoji*/
-  {MODKEY | ShiftMask,            XK_w,      spawn,          {.v = window}}, /*window*/
+	{MODKEY | ShiftMask,            XK_w,      spawn,          {.v = window}}, /*window*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
-  { Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
+  	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },//打开终端
 	{ MODKEY,                       XK_b,      togglebar,      {0} },//隐藏状态栏
 	{ MODKEY|ShiftMask,             XK_b,      rotatestack,    {.i = +1 } },//循环交换两个窗口的位置
