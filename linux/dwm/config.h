@@ -1,10 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 //声音需要安装pulseaudio-ctl
-//亮度需要安装xbacklight-ctl-git
 
 /* appearance */
-static const char *lightup[] = { "xbacklight-ctl", "up", "10",  NULL };
-static const char *lightdown[] = { "xbacklight-ctl", "down", "10",  NULL };
+static const char *lightup[] = { "xbacklight", "-inc", "10",  NULL };
+static const char *lightdown[] = { "xbacklight", "-dec", "10",  NULL };
 static const char *mutevol[] = { "pulseaudio-ctl", "mute", NULL };
 static const char *downvol[] = { "pulseaudio-ctl", "down", "5", NULL };
 static const char *upvol[]   = { "pulseaudio-ctl", "up", "5", NULL };
@@ -54,6 +53,7 @@ static const Rule rules[] = {
 	 
 	* class      instance    title       tags mask     isfloating   monitor */
     { "Gimp",     NULL,       NULL,       0,            1,           -1 },
+    { "Wine",     NULL,       NULL,       0,            1,           -1 },
 	  { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -95,7 +95,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 //static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"dolphin", NULL};
+static const char *file[] = {"", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
 static const char *power[] = {"power.sh", NULL};
