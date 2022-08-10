@@ -43,7 +43,7 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 }; 
 /* tagging */
-static const char *tags[] = {"¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹"};
+static const char *tags[] = {"¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹"};
 /* Lockfile */
 static char lockfile[] = "/tmp/dwm.lock";
 static const Rule rules[] = {
