@@ -70,7 +70,7 @@
 				break;
 			}
 		}
-		return (i == LEN(map)) ? "?" : map[i].symbol;
+		return (i == LEN(map)) ? "" : map[i].symbol;
 	}
 
 	const char *
@@ -173,7 +173,7 @@
 					break;
 				}
 			}
-			return (i == LEN(map)) ? "?" : map[i].symbol;
+			return (i == LEN(map)) ? "" : map[i].symbol;
 		}
 
 		return NULL;
