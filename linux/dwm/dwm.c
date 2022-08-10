@@ -40,7 +40,7 @@
 #include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
-
+#include <time.h>
 #include "drw.h"
 #include "util.h"
 
@@ -1642,8 +1642,24 @@ quit(const Arg *arg)
 				if (c && HIDDEN(c)) showwin(c);
 		}
 	}
+	FILE *fd = NULL;
+	struct stat filestat;
 
-	running = 0;
+	if ((fd = fopen(lockfile, "r")) && stat(lockfile, &filestat) == 0) {
+		fclose(fd);
+
+		if (filestat.st_ctime <= time(NULL)-2)
+			remove(lockfile);
+	}
+
+	if ((fd = fopen(lockfile, "r")) != NULL) {
+		fclose(fd);
+		remove(lockfile);
+		running = 0;
+	} else {
+		if ((fd = fopen(lockfile, "a")) != NULL)
+			fclose(fd);
+	}
 }
 
 Monitor *

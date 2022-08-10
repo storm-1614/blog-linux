@@ -44,8 +44,8 @@ static const unsigned int alphas[][3]      = {
 }; 
 /* tagging */
 static const char *tags[] = {"¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹"};
-/*static const char *tags[] = { "\uf120¹", "\uf7ae²", "\uf121³", "\ue04b⁴", "\uf62e⁵", "\uf251⁶", "\ue727⁷", "\uf537⁸", "\uf684⁹" };*/
-/*static const char *tags[] = { "\uf120", "\uf7ae", "\uf121", "\ue04b", "\uf62e", "\uf251", "\ue727", "\uf537", "\uf684" };*/
+/* Lockfile */
+static char lockfile[] = "/tmp/dwm.lock";
 static const Rule rules[] = {
 	 /* xprop(1):
 	  *	WM_CLASS(STRING) = instance, class
