@@ -70,6 +70,20 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 };
 
+static const char *const autostart[] = {
+	"picom", NULL,
+	"fcitx5", "-d", NULL,
+	"cfw", NULL,
+	"slstatus", NULL,
+	"dunst", NULL,
+	"conky", NULL,
+	"kmix", NULL,
+	"xset s 3600", NULL,
+	"redshift", "-O", "4500", NULL,
+	"feh", "--recursive", "--bg-fill", "Pictures/wallpapers/.", NULL,
+	"libinput-gestures", NULL,
+	NULL
+};
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
