@@ -70,6 +70,7 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 };
 
+//打开dwm启动的命令
 static const char *const autostart[] = {
 	"picom", NULL,
 	"fcitx5", "-d", NULL,
@@ -78,7 +79,8 @@ static const char *const autostart[] = {
 	"dunst", NULL,
 	"conky", NULL,
 	"kmix", NULL,
-	"xset s 3600", NULL,
+	"xset", "s", "3600", NULL,
+	"xset", "dpms", "0", "0", "3600", NULL,
 	"redshift", "-O", "4500", NULL,
 	"feh", "--recursive", "--bg-fill", "Pictures/wallpapers/.", NULL,
 	"libinput-gestures", NULL,
@@ -188,11 +190,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_s,      show,           {0} }, //显示隐藏的窗口
 	{ MODKEY,                       XK_v,      hide,           {0} }, //隐藏窗口
-	{ MODKEY,                       XK_Left,   viewtoleft,     {0} },
-	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
-	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
-	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
-																  
+	{ MODKEY,                       XK_Left,   viewtoleft,     {0} }, //切换到左边tag
+	{ MODKEY,                       XK_Right,  viewtoright,    {0} }, //切换到右边tag																
+	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} }, //窗口移动到左边tag
+	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} }, //窗口移动到右边tag																  
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
