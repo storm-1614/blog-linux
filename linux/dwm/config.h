@@ -117,14 +117,14 @@ static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=sock
 static const char *power[] = {"power.sh", NULL};
 static const char *emoji[] = {"rofi", "-show", "emoji", "-modi", "emoji", NULL};
 static const char *window[] = {"rofi", "-show", "window", NULL};
-static const char *cmus[] = {"cmus-config", NULL};
+static const char *music[] = {"mconfig", NULL};
 static const char *baidu[] = {"baidu-translate-client", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,           	XK_z,      spawn,          {.v = lock}},  /*锁屏*/
 	{ MODKEY, 			           	XK_f,      spawn,          {.v = baidu}},  /*翻译*/
-	{ MODKEY, 			           	XK_x,      spawn,          {.v = cmus}},  /*音乐控制*/
+	{ MODKEY, 			           	XK_x,      spawn,          {.v = music}},  /*音乐控制*/
 	{ MODKEY,                       XK_e,      spawn,          {.v = file}}, /*打开gnome文件*/
   	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
