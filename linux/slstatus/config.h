@@ -65,9 +65,11 @@ static const char unknown_str[] = "n/a";
  */
 static const char get_cpu_temp[] = "echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]°C";
 static const char get_time[] = "date '+%Y年%m月%d日%A %T'";
+static const char get_song_name[] = "echo $(mpc | sed '2,10d')";
 
 static const struct arg args[] = {
 	/* function format          argument */
+	{run_command, "[﫭 %s]", get_song_name}, 
 	{battery_state, "[%s", "BAT1"},
 	{battery_perc, " %s%%]", "BAT1"},
 	{cpu_perc, "[ %s%%]", NULL},
