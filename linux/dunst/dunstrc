@@ -55,7 +55,7 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 64
-    icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
+    icon_path = /usr/share/icons/Tela/32/status/:/usr/share/icons/Tela/32/devices/:/usr/share/icons/Tela/16/apps
 
     ### History ###
     sticky_history = yes

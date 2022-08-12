@@ -28,8 +28,8 @@
     idle_threshold = 120
 
     ### Text ###
-    font = FiraCode Nerd Font, Font Awesome 5 Free Solid 9
-    line_height = 0
+    font = Source Han Sans CN Medium 16
+	line_height = 0
 
     markup = full
 
