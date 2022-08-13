@@ -64,7 +64,7 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const char get_cpu_temp[] = "echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]°C";
-static const char get_time[] = "date '+%Y年%m月%d日%A %T'";
+static const char get_time[] = "date '+%T'";
 static const char get_song_name[] = "echo $(mpc | sed '2,10d')";
 
 static const struct arg args[] = {
