@@ -1,44 +1,28 @@
 --- dwm.c
 +++ dwm.c
-@@ -213,6 +213,12 @@ static void togglebar(const Arg *arg);
- static void togglefloating(const Arg *arg);
- static void toggletag(const Arg *arg);
- static void toggleview(const Arg *arg);
-+static void hidewin(const Arg *arg);
-+static void restorewin(const Arg *arg);
-+static void hideotherwins(const Arg *arg);
-+static void restoreotherwins(const Arg *arg);
-+static int issinglewin(const Arg *arg);
-+static void focuswin(const Arg *arg);
- static void unfocus(Client *c, int setfocus);
- static void unmanage(Client *c, int destroyed);
- static void unmapnotify(XEvent *e);
-@@ -838,19 +838,24 @@ focusstack(const Arg *arg)
+@@ -1252,7 +1252,24 @@ propertynotify(XEvent *e)
+ void
+ quit(const Arg *arg)
  {
- 	Client *c = NULL, *i;
- 
-+    if (issinglewin(arg)) {
-+        focuswin(arg);
-+        return;
-+    }
+-	running = 0;
++	FILE *fd = NULL;
++	struct stat filestat;
 +
- 	if (!selmon->sel)
- 		return;
- 	if (arg->i > 0) {
--		for (c = selmon->sel->next; c && !ISVISIBLE(c); c = c->next);
-+		for (c = selmon->sel->next; c && (!ISVISIBLE(c) || HIDDEN(c)); c = c->next);
- 		if (!c)
--			for (c = selmon->clients; c && !ISVISIBLE(c); c = c->next);
-+			for (c = selmon->clients; c && (!ISVISIBLE(c) || HIDDEN(c)); c = c->next);
- 	} else {
- 		for (i = selmon->clients; i != selmon->sel; i = i->next)
--			if (ISVISIBLE(i))
-+			if (ISVISIBLE(i) && !HIDDEN(i))
- 				c = i;
- 		if (!c)
- 			for (; i; i = i->next)
--				if (ISVISIBLE(i))
-+				if (ISVISIBLE(i) && !HIDDEN(i))
- 					c = i;
- 	}
- 	if (c) {
++	if ((fd = fopen(lockfile, "r")) && stat(lockfile, &filestat) == 0) {
++		fclose(fd);
++
++		if (filestat.st_ctime <= time(NULL)-2)
++			remove(lockfile);
++	}
++
++	if ((fd = fopen(lockfile, "r")) != NULL) {
++		fclose(fd);
++		remove(lockfile);
++		running = 0;
++	} else {
++		if ((fd = fopen(lockfile, "a")) != NULL)
++			fclose(fd);
++	}
+ }
+ 
+ Monitor *
