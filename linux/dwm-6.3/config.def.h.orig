@@ -47,6 +47,9 @@ static const char *const autostart[] = {
 /* tagging */
 static const char *tags[] = { "¹", "²", "³","⁴", "⁵", "⁶","⁷", "⁸", "⁹" };
 
+/* Lockfile */
+static char lockfile[] = "/tmp/dwm.lock";
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -67,7 +70,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]]]",      tile },    /* first entry is default */
 	{ "<>>>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]]",      monocle },
+	{ "M>]]",      monocle },
 };
 
 /* key definitions */

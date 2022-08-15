@@ -14,7 +14,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int vertpad            = 10;       /* vertical padding of bar */
 static const int sidepad            = 10;       /* horizontal padding of bar */
-static const char *fonts[]          = { "Hack NF:size=14", "Source Han Sans CN:size=14" };
+static const char *fonts[]          = { "Hack:size=16", "Source Han Sans CN:size=14" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2e3440";
 static const char col_gray2[]       = "#2e3440";
@@ -41,6 +41,7 @@ static const char *const autostart[] = {
 	"redshift", "-O", "4500", NULL,
 	"feh", "--recursive", "--bg-fill", "Pictures/wallpapers/.", NULL,
 	"libinput-gestures", NULL,
+	"pasystray", NULL,
 	NULL
 };
 
@@ -70,7 +71,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]]]",      tile },    /* first entry is default */
 	{ "<>>>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]]",      monocle },
+	{ "M>]]",      monocle },
 };
 
 /* key definitions */
@@ -131,8 +132,7 @@ static Key keys[] = {
   	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, //终端
 	{ MODKEY,                       XK_b,      togglebar,      {0} },  //隐藏状态栏
-    { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
-    { MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+    { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } }, { MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
     { MODKEY, 			            XK_l,      aspectresize,   {.i = +24 } },
     { MODKEY, 			            XK_h,      aspectresize,  {.i = -24 } },																	   
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },  //将窗口恢复垂直逻辑
@@ -160,6 +160,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
+	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_s,      show,           {0} },
 	{ MODKEY,                       XK_v,      hide,           {0} },
 	TAGKEYS(                        XK_1,                      0)
