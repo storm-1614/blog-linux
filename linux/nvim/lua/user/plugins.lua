@@ -30,5 +30,7 @@ return require('packer').startup(function()
   		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 			}
 		--use {'glepnir/dashboard-nvim'}
-
+	
+		-- lspconfig
+		--  use {'neovim/nvim-lspconfig', 'williamboman/nvim-lsp-installer'}
 end)
