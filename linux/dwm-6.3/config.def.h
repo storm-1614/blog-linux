@@ -71,8 +71,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "﬿",      tile },    /* first entry is default */
+	{ "缾",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -124,7 +124,6 @@ static Key keys[] = {
   	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },/*打开ropfi*/
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*截图*/
-	{ MODKEY,                       XK_p,      spawn,          {.v = screenshotcmd } },/*截图*/
 	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开edge*/
 	{MODKEY | ShiftMask,            XK_c,      spawn,          {.v = browsercmd}}, /*以代理模式打开edge*/
 	{MODKEY | ShiftMask,            XK_l,      spawn,          {.v = power}}, /*电源*/
@@ -134,11 +133,10 @@ static Key keys[] = {
   	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, //终端
 	{ MODKEY,                       XK_b,      togglebar,      {0} },  //隐藏状态栏
-    { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } }, { MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+    { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
     { MODKEY, 			            XK_l,      aspectresize,   {.i = +24 } },
     { MODKEY, 			            XK_h,      aspectresize,  {.i = -24 } },																	   
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },  //将窗口恢复垂直逻辑
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },  //将窗口改为浮动
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
@@ -162,6 +160,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
+	{ MODKEY,           			XK_i,      setcfact,       {.f = +0.25} },
+	{ MODKEY,  			            XK_p,      setcfact,       {.f = -0.25} },
+	{ MODKEY, 			            XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_s,      show,           {0} },

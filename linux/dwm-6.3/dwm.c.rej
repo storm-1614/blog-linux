@@ -1,28 +1,22 @@
 --- dwm.c
 +++ dwm.c
-@@ -1252,7 +1252,24 @@ propertynotify(XEvent *e)
- void
- quit(const Arg *arg)
- {
--	running = 0;
-+	FILE *fd = NULL;
-+	struct stat filestat;
-+
-+	if ((fd = fopen(lockfile, "r")) && stat(lockfile, &filestat) == 0) {
-+		fclose(fd);
-+
-+		if (filestat.st_ctime <= time(NULL)-2)
-+			remove(lockfile);
-+	}
-+
-+	if ((fd = fopen(lockfile, "r")) != NULL) {
-+		fclose(fd);
-+		remove(lockfile);
-+		running = 0;
-+	} else {
-+		if ((fd = fopen(lockfile, "a")) != NULL)
-+			fclose(fd);
-+	}
+@@ -1713,15 +1739,17 @@ tile(Monitor *m)
+ 		mw = m->ww;
+ 	for (i = my = ty = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+ 		if (i < m->nmaster) {
+-			h = (m->wh - my) / (MIN(n, m->nmaster) - i);
++			h = (m->wh - my) * (c->cfact / mfacts);
+ 			resize(c, m->wx, m->wy + my, mw - (2*c->bw), h - (2*c->bw), 0);
+ 			if (my + HEIGHT(c) < m->wh)
+ 				my += HEIGHT(c);
++     mfacts -= c->cfact;
+ 		} else {
+-			h = (m->wh - ty) / (n - i);
++			h = (m->wh - ty) * (c->cfact / sfacts);
+ 			resize(c, m->wx + mw, m->wy + ty, m->ww - mw - (2*c->bw), h - (2*c->bw), 0);
+ 			if (ty + HEIGHT(c) < m->wh)
+ 				ty += HEIGHT(c);
++     sfacts -= c->cfact;
+ 		}
  }
  
- Monitor *
