@@ -141,6 +141,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },  //隐藏状态栏
     { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	    {MODKEY | ShiftMask, 		XK_j, 	   focusstackhid, {.i = +1}},
+    {MODKEY | ShiftMask, 			XK_k, 	   focusstackhid, {.i = -1}},
     { MODKEY, 			            XK_l,      aspectresize,   {.i = +24 } },
     { MODKEY, 			            XK_h,      aspectresize,  {.i = -24 } },																	   
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -169,8 +171,10 @@ static Key keys[] = {
 	{ MODKEY,           			XK_i,      setcfact,       {.f = +0.25} },
 	{ MODKEY,  			            XK_p,      setcfact,       {.f = -0.25} },
 	{ MODKEY, 			            XK_o,      setcfact,       {.f =  0.00} },
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_b,      rotatestack,    {.i = +1 } },
+//	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+	{MODKEY, 						XK_y, 	   incnmaster, 	   {.i = +1}}, //将窗口回复垂直逻辑
+    {MODKEY | ShiftMask, 			XK_y, 	   incnmaster, 	   {.i = -1}}, //将窗口改为横着
 	{ MODKEY,                       XK_s,      show,           {0} },
 	{ MODKEY,                       XK_v,      hide,           {0} },
 	TAGKEYS(                        XK_1,                      0)

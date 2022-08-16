@@ -1026,13 +1026,13 @@ focusstack(int inc, int hid)
 
    if (inc > 0) {
         if (selmon->sel)
-           for (c = selmon->sel->next;
-                    c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
-                    c = c->next);
-		if (!c)
-			for (c = selmon->clients;
-                    c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
-                    c = c->next);
+            for (c = selmon->sel->next;
+            	    c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
+                	c = c->next);
+	if (!c)
+		for (c = selmon->clients;
+            		c && (!ISVISIBLE(c) || (!hid && HIDDEN(c)));
+                	c = c->next);
 	} else {
        if (selmon->sel) {
            for (i = selmon->clients; i != selmon->sel; i = i->next)
