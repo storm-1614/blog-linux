@@ -22,7 +22,7 @@ static const char col_gray2[]       = "#2e3440";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#2e3440";
 static const char col_cyan[]        = "#5e81ac";
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0x85;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
