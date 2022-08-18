@@ -42,7 +42,7 @@ static const char *const autostart[] = {
 	"cfw", NULL,
 	"slstatus", NULL,
 	"dunst", NULL,
-	"conky", NULL,
+	//"conky", NULL,
 	"xset", "s", "3600", NULL,
 	"xset", "dpms", "0", "0", "3600", NULL,
 	"redshift", "-O", "4500", NULL,
@@ -96,7 +96,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 /*static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };*/
 static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
@@ -105,7 +105,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 //static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"alacritty", "-e", "ranger", NULL};
+static const char *file[] = {"sr", "ranger", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
 static const char *power[] = {"power.sh", NULL};
@@ -114,14 +114,16 @@ static const char *window[] = {"rofi", "-show", "window", NULL};
 static const char *music[] = {"mconfig", NULL};
 static const char *baidu[] = {"baidu-translate-client", NULL};
 static const char *trayer[] = {"/home/storm/.trayer.sh", NULL};
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = {"st", "-t",     scratchpadname,"-g", "120x34", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_F5,    spawn,          {.v = downvol } },/*减小音量*/
-	{ MODKEY,                       XK_F1,    spawn,          {.v = lightdown } },/*减小亮度*/
-	{ MODKEY,                       XK_F2,    spawn,          {.v = lightup } },/*增大亮度*/
+	{ MODKEY,                       XK_F5,     spawn,          {.v = downvol } },/*减小音量*/
+	{ MODKEY,                       XK_F1,     spawn,          {.v = lightdown } },/*减小亮度*/
+	{ MODKEY,                       XK_F2,     spawn,          {.v = lightup } },/*增大亮度*/
 	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol } },/*静音*/
-	{ MODKEY,                       XK_F6,    spawn,          {.v = upvol   } },/*增加音量*/
+	{ MODKEY,                       XK_F6,     spawn,          {.v = upvol   } },/*增加音量*/
 	{ MODKEY|ShiftMask,           	XK_z,      spawn,          {.v = lock}},  /*锁屏*/
 	{ MODKEY, 			           	XK_f,      spawn,          {.v = baidu}},  /*翻译*/
 	{ MODKEY, 			           	XK_z,      spawn,          {.v = trayer}},  /*trayer*/
@@ -138,13 +140,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
   	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, //终端
+    {MODKEY, 						XK_r, 	   togglescratch,  {.v = scratchpadcmd}},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },  //隐藏状态栏
     { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
-	    {MODKEY | ShiftMask, 		XK_j, 	   focusstackhid, {.i = +1}},
-    {MODKEY | ShiftMask, 			XK_k, 	   focusstackhid, {.i = -1}},
+    {MODKEY | ShiftMask, 			XK_j, 	   focusstackhid,  {.i = +1}},
+    {MODKEY | ShiftMask, 			XK_k, 	   focusstackhid,  {.i = -1}},
     { MODKEY, 			            XK_l,      aspectresize,   {.i = +24 } },
-    { MODKEY, 			            XK_h,      aspectresize,  {.i = -24 } },																	   
+    { MODKEY, 			            XK_h,      aspectresize,   {.i = -24 } },																	   
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
