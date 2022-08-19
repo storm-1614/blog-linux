@@ -15,4 +15,6 @@ echo "正在复制zshrc"
 cp ./zshrc ~/.zshrc
 echo "完成"
 
+sudo chsh -s /bin/zsh
+
 
