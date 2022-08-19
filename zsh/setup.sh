@@ -1,12 +1,12 @@
 #! /bin/bash
 if [ ! $(command -v apt) ] ;then
 	sleep 0.1
-	else sudo apt install fzf exa zsh bat -y
+	else sudo apt install fzf exa zsh bat p7zip -y
 fi
 
 if [ ! $(command -v pacman) ] ;then
 	sleep 0.1
-	else sudo pacman -S fzf exa bat zsh --noconfirm 
+	else sudo pacman -S fzf exa bat zsh p7zip --noconfirm 
 fi
 
 echo "正在解压中！"
