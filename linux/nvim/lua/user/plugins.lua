@@ -6,6 +6,8 @@ return require('packer').startup(function()
 		use 'neoclide/coc.nvim'
 		--fzf
 		use 'vijaymarupudi/nvim-fzf'
+		--vim_doc
+		use 'vimcn/vimcdoc'
 		--tree
     	use {
         'kyazdani42/nvim-tree.lua',
