@@ -96,7 +96,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 /*static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };*/
 static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
@@ -105,7 +105,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 //static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"sr", "ranger", NULL};
+static const char *file[] = {"alacritty", "-e", "ranger", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
 static const char *power[] = {"power.sh", NULL};
@@ -133,19 +133,19 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = roficmd1 } },/*以命令模式打开rofi*/
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          {.v = screenshotcmd } },/*截图*/
 	{ MODKEY,                       XK_c,      spawn,          {.v = chromecmd } },/*打开edge*/
-	{ MODKEY | ShiftMask,           XK_c,      spawn,          {.v = browsercmd}}, /*以代理模式打开edge*/
-	{ MODKEY | ShiftMask,           XK_l,      spawn,          {.v = power}}, /*电源*/
-	{ MODKEY | ShiftMask,           XK_m,      spawn,          {.v = emoji}}, /*emoji*/
-	{ MODKEY | ShiftMask,           XK_w,      spawn,          {.v = window}}, /*window*/
+	{MODKEY | ShiftMask,            XK_c,      spawn,          {.v = browsercmd}}, /*以代理模式打开edge*/
+	{MODKEY | ShiftMask,            XK_l,      spawn,          {.v = power}}, /*电源*/
+	{MODKEY | ShiftMask,            XK_m,      spawn,          {.v = emoji}}, /*emoji*/
+	{MODKEY | ShiftMask,            XK_w,      spawn,          {.v = window}}, /*window*/
 	{ MODKEY,                       XK_r,      spawn,          {.v = radomchwp } },/*随机切换壁纸*/
   	{ Mod1Mask,                     XK_f,      spawn,          {.v = firefoxcmd } },/*打开firefox*/
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, //终端
-    { MODKEY, 						XK_r, 	   togglescratch,  {.v = scratchpadcmd}},
+    {MODKEY, 						XK_r, 	   togglescratch,  {.v = scratchpadcmd}},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },  //隐藏状态栏
     { MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
-    { MODKEY | ShiftMask, 			XK_j, 	   focusstackhid,  {.i = +1}},
-    { MODKEY | ShiftMask, 			XK_k, 	   focusstackhid,  {.i = -1}},
+    {MODKEY | ShiftMask, 			XK_j, 	   focusstackhid,  {.i = +1}},
+    {MODKEY | ShiftMask, 			XK_k, 	   focusstackhid,  {.i = -1}},
     { MODKEY, 			            XK_l,      aspectresize,   {.i = +24 } },
     { MODKEY, 			            XK_h,      aspectresize,   {.i = -24 } },																	   
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -175,9 +175,9 @@ static Key keys[] = {
 	{ MODKEY,  			            XK_p,      setcfact,       {.f = -0.25} },
 	{ MODKEY, 			            XK_o,      setcfact,       {.f =  0.00} },
 	{ MODKEY|ShiftMask,             XK_b,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_n,      rotatestack,    {.i = -1 } },
-	{ MODKEY, 						XK_y, 	   incnmaster, 	   {.i = +1}}, //将窗口回复垂直逻辑
-    { MODKEY | ShiftMask, 			XK_y, 	   incnmaster, 	   {.i = -1}}, //将窗口改为横着
+//	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
+	{MODKEY, 						XK_y, 	   incnmaster, 	   {.i = +1}}, //将窗口回复垂直逻辑
+    {MODKEY | ShiftMask, 			XK_y, 	   incnmaster, 	   {.i = -1}}, //将窗口改为横着
 	{ MODKEY,                       XK_s,      show,           {0} },
 	{ MODKEY,                       XK_v,      hide,           {0} },
 	TAGKEYS(                        XK_1,                      0)

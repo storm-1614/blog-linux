@@ -96,7 +96,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 /*static const char *roficmd[]  = { "rofi", "-theme", "solarized_alternate", "font", "'Hack","20'", "-show", "drun", "-icon-theme" "'Papirus'", "-show-icons", NULL };*/
 static const char *roficmd[]  = { "rofi", "-show", "drun", NULL };
 static const char *roficmd1[]  = { "rofi", "-show", "run", NULL };
@@ -105,7 +105,7 @@ static const char *radomchwp[]  = { "/home/storm/.config/scripts/random-change-s
 //static const char *screenshotcmd[] = { "deepin-screenshot", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 static const char *firefoxcmd[]  = { "firefox",  NULL };
-static const char *file[] = {"sr", "ranger", NULL};
+static const char *file[] = {"alacritty", "-e", "ranger", NULL};
 static const char *lock[] = {"i3lock-fancy", NULL};
 static const char *browsercmd[] = {"microsoft-edge-stable", "--proxy-server=socks5://127.0.0.1:20171", NULL};
 static const char *power[] = {"power.sh", NULL};
