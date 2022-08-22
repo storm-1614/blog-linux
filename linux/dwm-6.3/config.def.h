@@ -49,6 +49,9 @@ static const char *const autostart[] = {
 	"feh", "--recursive", "--bg-fill", "Pictures/wallpapers/.", NULL,
 	"libinput-gestures", NULL,
 	"pasystray", NULL,
+	"thunderbird", NULL,
+	"telegram-desktop", NULL,
+	"icalingua", NULL,
 	NULL
 };
 
@@ -70,7 +73,9 @@ static const Rule rules[] = {
 	{ "VirtualBox Manager", NULL, NULL,   1 << 5, 		0, 			 -1 },
 	{ "VirtualBox Machine", NULL, NULL,   1 << 5, 		0, 			 -1 },
 	{ "icalingua", NULL,      NULL, 	  1 << 4, 		0, 			 -1 },
+	{ "Wine",     NULL,       NULL, 	  1 << 4, 		1, 			 -1 },
 	{ "TelegramDesktop", NULL, NULL,      1 << 3, 		0, 			 -1 },
+	{ "Thunderbird", NULL,    NULL, 	  1 << 8, 		0, 			 -1 },
 };
 
 /* layout(s) */
